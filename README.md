@@ -11,6 +11,11 @@ Which is itself a port of PHP version, which I am unable to locate at the moment
 An explanation of the algorithm:  
 http://roguebasin.roguelikedevelopment.org/index.php?title=Restrictive_Precise_Angle_Shadowcasting
 
+Live demo  
+=========  
+http://domasx2.github.com/mrpas-js/  
+  
+    
 License
 =======
 Public Domain?
