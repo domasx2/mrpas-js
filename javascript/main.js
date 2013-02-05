@@ -28,9 +28,10 @@ gamejs.ready(function() {
     mrpas.compute(map, player_pos, VISION_RANGE);
     
     function move_player(x, y){
-        new_pos = vec.add(player_pos, [x, y]);
+        var new_pos = vec.add(player_pos, [x, y]);
         //collision!
-        if(!map.tiles[new_pos[0]][new_pos[1]].wall){
+        var dest_tile =  map.get_tile(new_pos);
+        if(dest_tile && !dest_tile.wall){
             player_pos = new_pos;
             mrpas.compute(map, player_pos, VISION_RANGE);
             redraw = true;
@@ -68,10 +69,12 @@ gamejs.ready(function() {
             //fill wall
             else if (event.type ==gamejs.event.MOUSE_DOWN){
                 var pos = vec.divide(event.pos, TILE_WIDTH);
-                var tile = map.tiles[parseInt(pos[0])][parseInt(pos[1])];
-                tile.wall = !tile.wall;
-                redraw = true;
-                mrpas.compute(map, player_pos, VISION_RANGE);
+                var tile = map.get_tile(pos);
+                if(tile){
+                    tile.wall = !tile.wall;
+                    redraw = true;
+                    mrpas.compute(map, player_pos, VISION_RANGE);
+                }
             }
         });
      
