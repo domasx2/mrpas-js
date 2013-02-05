@@ -69,7 +69,7 @@ gamejs.ready(function() {
             //fill wall
             else if (event.type ==gamejs.event.MOUSE_DOWN){
                 var pos = vec.divide(event.pos, TILE_WIDTH);
-                var tile = map.get_tile(pos);
+                var tile = map.get_tile([parseInt(pos[0]), parseInt(pos[1])]);
                 if(tile){
                     tile.wall = !tile.wall;
                     redraw = true;
