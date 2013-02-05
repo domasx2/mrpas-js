@@ -22,6 +22,13 @@ var Map = function(size){
     }
 };
 
+Map.prototype.get_tile = function(pos){
+    if(this.tiles[pos[0]] && this.tiles[pos[0]][pos[1]]){
+        return this.tiles[pos[0]][pos[1]];
+    }
+    return null;
+};
+
 Map.prototype.iter = function(callback, context){
   //iterate over all tiles, callbing callback with position & tile
   for(var x=0;x<this.size[0];x++){
